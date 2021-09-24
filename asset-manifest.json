@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/yk177.githab.io/social-network/static/css/main.11563846.chunk.css",
+    "main.js": "/yk177.githab.io/social-network/static/js/main.9e0b4658.chunk.js",
+    "main.js.map": "/yk177.githab.io/social-network/static/js/main.9e0b4658.chunk.js.map",
+    "runtime-main.js": "/yk177.githab.io/social-network/static/js/runtime-main.60d894bd.js",
+    "runtime-main.js.map": "/yk177.githab.io/social-network/static/js/runtime-main.60d894bd.js.map",
+    "static/js/2.3e4b5800.chunk.js": "/yk177.githab.io/social-network/static/js/2.3e4b5800.chunk.js",
+    "static/js/2.3e4b5800.chunk.js.map": "/yk177.githab.io/social-network/static/js/2.3e4b5800.chunk.js.map",
+    "static/js/3.a344f963.chunk.js": "/yk177.githab.io/social-network/static/js/3.a344f963.chunk.js",
+    "static/js/3.a344f963.chunk.js.map": "/yk177.githab.io/social-network/static/js/3.a344f963.chunk.js.map",
+    "index.html": "/yk177.githab.io/social-network/index.html",
+    "static/css/main.11563846.chunk.css.map": "/yk177.githab.io/social-network/static/css/main.11563846.chunk.css.map",
+    "static/js/2.3e4b5800.chunk.js.LICENSE.txt": "/yk177.githab.io/social-network/static/js/2.3e4b5800.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.60d894bd.js",
+    "static/js/2.3e4b5800.chunk.js",
+    "static/css/main.11563846.chunk.css",
+    "static/js/main.9e0b4658.chunk.js"
+  ]
+}
