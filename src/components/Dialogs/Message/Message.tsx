@@ -1,13 +1,8 @@
 import React from "react";
+import {MessageType} from "../../..";
 import s from "./Message.module.css";
 
-export type MessagePropsType = {
-    id: number
-    text: string
-    kindOfMessage: string
-}
-
-export const Message = (props: MessagePropsType) => {
+export const Message = (props: MessageType) => {
 
     let messageClass;
     (props.kindOfMessage === 'outgoing') ? (messageClass = s.outgoing) : (messageClass = s.incoming);

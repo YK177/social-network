@@ -1,18 +1,9 @@
 import React from "react";
+import {PostsType} from "../../../..";
+
 import s from './Post.module.css'
 
-export type PostPropsType = {
-    id: number
-    avatar: string
-    name: string
-    lastSeen: number
-    comment: string
-    likeCounter: number
-    shareCounter: number
-}
-
-
-export const Post = (props: PostPropsType) => {
+export const Post = (props: PostsType) => {
     return (
         <div className={s.alt_message}>
             <div className={s.container}>
