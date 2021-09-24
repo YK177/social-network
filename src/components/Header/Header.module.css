@@ -1,0 +1,16 @@
+.body {
+    grid-area: h;
+    background: #dc4734;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    flex: 0 0 50px;
+}
+
+.logo img {
+    width: 100%;
+    border-radius: 50%;
+}

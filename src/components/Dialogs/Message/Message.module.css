@@ -1,0 +1,64 @@
+.massage {
+    max-width: 70%;
+    display: inline-flex;
+    margin-bottom: 15px;
+    position: relative;
+    border-radius: 7px;
+}
+
+.massage:last-child {
+    margin-bottom: 0;
+}
+
+.massage::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    min-width: 15px;
+    height: 80%;
+}
+
+.massage::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    min-width: 15px;
+    height: 80%;
+    background-color: #fff;
+}
+
+.massage.outgoing {
+    align-self: flex-end;
+    background-color: #a1ee99;
+}
+
+.massage.outgoing::before {
+    right: -15px;
+    background-color: #a1ee99;
+}
+
+.massage.outgoing::after {
+    right: -15px;
+    border-bottom-left-radius: 15px;
+
+}
+
+.massage.incoming {
+    align-self: flex-start;
+    background-color: #99e7ee;
+}
+
+.massage.incoming::before {
+    left: -15px;
+    background-color: #99e7ee;
+}
+
+.massage.incoming::after {
+    left: -15px;
+    border-bottom-right-radius: 15px;
+}
+
+.massage p {
+    padding: 10px;
+    line-height: 130%;
+}

@@ -1,0 +1,46 @@
+.dialog {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.dialog:hover {
+    background-color: #f1f1f1;
+    box-shadow: 2px 2px 5px #a0a0a0;
+}
+
+.dialog:active {
+    background-color: #a0a0a0;
+    box-shadow: none;
+}
+
+.dialog.active {
+    background-color: #f1f1f1;
+}
+
+.dialog p {
+    flex: 1 1 auto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.dialog.active p{
+    color: #444444;
+    font-weight: 700;
+}
+
+.avatar {
+    flex: 0 0 30%;
+    margin-right: 10px;
+}
+
+.avatar img {
+    width: 100%;
+    border-radius: 50%;
+}

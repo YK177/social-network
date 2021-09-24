@@ -1,0 +1,47 @@
+.body {
+    grid-area: s;
+    background: #fff;
+}
+
+.nav {
+    padding: 20px 10px 20px 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.list li{
+    width: 100%;
+}
+
+
+.link{
+    display: flex;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+    padding: 10px;
+    transition: all ease 0.5s;
+}
+
+.link:hover{
+    color: #dc4734;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(255,255,255,1) 100%);
+}
+
+.active{
+    color: #dc4734;
+}
+
+
+
+
+
+

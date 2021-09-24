@@ -1,0 +1,7 @@
+.body {
+    grid-area: f;
+    background: #dc4734;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
