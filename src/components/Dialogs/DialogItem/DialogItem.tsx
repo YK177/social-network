@@ -1,20 +1,26 @@
-import {NavLink} from "react-router-dom";
-import s from "./DialogItem.module.css";
-import React from "react";
-import {DialogType} from "../../../index";
+import {NavLink} from 'react-router-dom';
+import s from './DialogItem.module.css';
+import React from 'react';
+import {DialogType} from '../../../redux/state';
 
-export const DialogItem = (props: DialogType) => {
 
-    let path = `/dialogs/${props.id}`;
+type DialogItemPropsType = {
+    data: DialogType
+}
+
+
+export const DialogItem: React.FC<DialogItemPropsType> = ({data}) => {
+
+    let path = `/dialogs/${data.id}`;
 
     return (
         <NavLink to={path} className={s.dialog} activeClassName={s.active}>
             <div className={s.avatar}>
                 <img
-                    src={props.avatar}
+                    src={data.avatar}
                     alt="avatar"/>
             </div>
-            <p>{props.name}</p>
+            <p>{data.name}</p>
         </NavLink>
     )
 }

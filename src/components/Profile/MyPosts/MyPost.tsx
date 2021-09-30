@@ -1,20 +1,18 @@
-import React from "react";
-import { PostsType } from "../../..";
+import React from 'react';
+import {NewPost} from './NewPost/NewPost';
+import {Post} from './Post/Post';
+import {PostType} from '../../../redux/state';
 
-import {NewPost} from "./NewPost/NewPost";
-import {Post} from "./Post/Post";
-
-type MyPostType = {
-    posts: Array<PostsType>
+type MyPostPropsType = {
+    posts: PostType[]
 }
 
-export const MyPost = (props: MyPostType) => {
+export const MyPost: React.FC<MyPostPropsType> = ({posts}) => {
     return (
         <div>
             <NewPost/>
             {
-                props.posts.map(p => {
-                    return (
+                posts.map(p => (
                         <Post
                             key={p.id}
                             id={p.id}
@@ -26,7 +24,7 @@ export const MyPost = (props: MyPostType) => {
                             shareCounter={p.shareCounter}
                         />
                     )
-                })
+                )
             }
         </div>
     )

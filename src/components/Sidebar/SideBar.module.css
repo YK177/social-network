@@ -1,0 +1,46 @@
+.body {
+    grid-area: s;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.friends {
+    display: flex;
+    padding: 20px 10px 20px 20px;
+    flex-wrap: wrap;
+}
+
+.friend {
+    display: flex;
+    flex: 1 0 80px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 50px;
+    margin-bottom: 5px;
+}
+
+.avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 12px;
+    color: #333333;
+}
+
+.active .avatar{
+    transform: scale(1.1);
+}
+.active .name{
+    color: #000;
+    font-weight: 500;
+}
+
+
+

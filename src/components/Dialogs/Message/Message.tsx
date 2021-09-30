@@ -1,15 +1,21 @@
-import React from "react";
-import {MessageType} from "../../..";
-import s from "./Message.module.css";
+import React from 'react';
+import s from './Message.module.css';
+import {MessageType} from '../../../redux/state';
 
-export const Message = (props: MessageType) => {
+type MessagePropsType = {
+    data: MessageType
+}
+
+export const Message: React.FC<MessagePropsType> = ({data}) => {
 
     let messageClass;
-    (props.kindOfMessage === 'outgoing') ? (messageClass = s.outgoing) : (messageClass = s.incoming);
+    (data.kindOfMessage === 'outgoing')
+        ? (messageClass = s.outgoing)
+        : (messageClass = s.incoming)
 
     return (
         <div className={`${s.massage} ${messageClass}`}>
-            <p>{props.text}</p>
+            <p>{data.text}</p>
         </div>
     )
 }
