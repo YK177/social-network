@@ -1,6 +1,7 @@
 import s from './NewMessage.module.css';
 import React, {ChangeEvent} from 'react';
-import {ActionType, addMassageAC, updateNewMessageTextAC} from '../../../redux/store';
+import {ActionType} from '../../../redux/store';
+import { addMassageAC, updateNewMessageTextAC } from '../../../redux/dialogs-reducer';
 
 type NewMessagePropsType = {
     value: string

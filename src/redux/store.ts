@@ -1,3 +1,6 @@
+import profileReducer, {ProfileActionType} from "./profile-reducer";
+import dialogsReducer, {DialogsActionType} from "./dialogs-reducer";
+
 export type PostType = {
     id: number
     avatar: string
@@ -47,6 +50,7 @@ export type StoreType = {
     getState: () => StateType
     dispatch: (action: ActionType) => void
 }
+export type ActionType = ProfileActionType | DialogsActionType
 
 //===Store=======================================
 export const store: StoreType = {
@@ -147,71 +151,8 @@ export const store: StoreType = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            const newPost: PostType = {
-                id: new Date().getTime(),
-                avatar: 'https://images.generated.photos/8HvfbgpUo0GD5FBOHMDk7LOvFB_wKaSmG5DzRfd6nMs/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy8wNTQ0/MDY0LmpwZw.jpg',
-                name: 'Erik Jhonson',
-                lastSeen: 0,
-                comment: this._state.profilePage.newPostText,
-                likeCounter: 0,
-                shareCounter: 0
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber()
-        } else if (action.type === 'ADD-MASSAGE') {
-            const newMessage: MessageType = {
-                id: new Date().getTime(),
-                text: this._state.dialogsPage.newMessageText,
-                kindOfMessage: 'outgoing'
-            }
-            this._state.dialogsPage.messages.push(newMessage)
-            this._state.dialogsPage.newMessageText = ''
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.dialogsPage.newMessageText = action.newText
-            this._callSubscriber()
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._callSubscriber()
     }
 }
-//===============================================
-
-//===Action types================================
-export type ActionType =
-    ReturnType<typeof addPostAC>
-    | ReturnType<typeof updateNewPostTextAC>
-    | ReturnType<typeof addMassageAC>
-    | ReturnType<typeof updateNewMessageTextAC>
-//================================================
-
-//===Action creators==============================
-export const addPostAC = () => {
-    return {
-        type: 'ADD-POST'
-    } as const
-}
-
-export const updateNewPostTextAC = (newText: string) => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT',
-        newText
-    } as const
-}
-
-export const addMassageAC = () => {
-    return {
-        type: 'ADD-MASSAGE'
-    } as const
-}
-
-export const updateNewMessageTextAC = (newText: string) => {
-    return {
-        type: 'UPDATE-NEW-MESSAGE-TEXT',
-        newText
-    } as const
-}
-//=================================================
