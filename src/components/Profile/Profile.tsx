@@ -1,19 +1,18 @@
 import React from 'react';
 import {MyPost} from './MyPosts/MyPost';
 import {UserInfo} from './UserInfo/UserInfo';
-import {ProfilePageType} from '../../redux/state';
+import {GeneralActionType, ProfilePageType} from '../../redux/store';
 
 type ProfilePropsType = {
     data: ProfilePageType
-    addPost: () => void
-    changeTextForNewPost:(newText: string)=>void
+    dispatch: (action: GeneralActionType) => void
 }
 
-export const Profile: React.FC<ProfilePropsType> = ({data, addPost, changeTextForNewPost}) => {
+export const Profile: React.FC<ProfilePropsType> = ({data, dispatch}) => {
     return (
         <>
             <UserInfo/>
-            <MyPost data={data} addPost={addPost} changeTextForNewPost={changeTextForNewPost}/>
+            <MyPost data={data} dispatch={dispatch}/>
         </>
     )
 }

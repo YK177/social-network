@@ -43,10 +43,20 @@ export type StoreType = {
     _state: StateType
     _callSubscriber: () => void
     subscribe: (observer: () => void) => void
-    addPost: () => void
-    changeTextForNewPost: (newText: string) => void
     getState: () => StateType
+    dispatch: (action: GeneralActionType) => void
 }
+
+//Action types
+export type GeneralActionType = AddPostActionType | UpdateNewPostTextActionType
+type AddPostActionType = {
+    type: 'ADD-POST'
+}
+type UpdateNewPostTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newText: string
+}
+
 
 export const store: StoreType = {
     _state: {
@@ -138,28 +148,29 @@ export const store: StoreType = {
     },
     _callSubscriber() {
     },
+    getState() {
+        return this._state
+    },
     subscribe(observer: () => void) {
         this._callSubscriber = observer
     },
-    addPost() {
-        const newPost: PostType = {
-            id: new Date().getTime(),
-            avatar: 'https://images.generated.photos/8HvfbgpUo0GD5FBOHMDk7LOvFB_wKaSmG5DzRfd6nMs/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy8wNTQ0/MDY0LmpwZw.jpg',
-            name: 'Erik Jhonson',
-            lastSeen: 0,
-            comment: this._state.profilePage.newPostText,
-            likeCounter: 0,
-            shareCounter: 0
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            const newPost: PostType = {
+                id: new Date().getTime(),
+                avatar: 'https://images.generated.photos/8HvfbgpUo0GD5FBOHMDk7LOvFB_wKaSmG5DzRfd6nMs/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy8wNTQ0/MDY0LmpwZw.jpg',
+                name: 'Erik Jhonson',
+                lastSeen: 0,
+                comment: this._state.profilePage.newPostText,
+                likeCounter: 0,
+                shareCounter: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = 'Say something'
+            this._callSubscriber()
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber()
         }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = 'Say something'
-        this._callSubscriber()
-    },
-    changeTextForNewPost(newText: string) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber()
-    },
-    getState() {
-        return this._state
     }
 }

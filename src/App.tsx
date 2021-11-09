@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {StoreType} from './redux/state';
+import {StoreType} from './redux/store';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {Header} from './components/Header/Header';
 import {SideBar} from './components/Sidebar/SideBar';
@@ -27,8 +27,7 @@ const App: React.FC<AppPropsType> = ({store}) => {
                     <Route path={'/dialogs'} render={() => <Dialogs data={state.dialogsPage}/>}/>
                     <Route path={'/profile'} render={() => <Profile
                         data={state.profilePage}
-                        addPost={store.addPost.bind(store)}
-                        changeTextForNewPost={store.changeTextForNewPost.bind(store)}
+                        dispatch={store.dispatch.bind(store)}
                     />}/>
                     <Route path={'/news'} render={() => <News/>}/>
                     <Route path={'/music'} render={() => <Music/>}/>

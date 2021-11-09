@@ -1,15 +1,14 @@
 import React from 'react';
 import {NewPost} from './NewPost/NewPost';
 import {Post} from './Post/Post';
-import {ProfilePageType} from '../../../redux/state';
+import {GeneralActionType, ProfilePageType} from '../../../redux/store';
 
 type MyPostPropsType = {
     data: ProfilePageType
-    addPost: () => void
-    changeTextForNewPost:(newText: string)=>void
+    dispatch: (action: GeneralActionType) => void
 }
 
-export const MyPost: React.FC<MyPostPropsType> = ({data, addPost,changeTextForNewPost}) => {
+export const MyPost: React.FC<MyPostPropsType> = ({data, dispatch}) => {
 
     const postsElements = data.posts.map(p => (
         <Post
@@ -25,7 +24,7 @@ export const MyPost: React.FC<MyPostPropsType> = ({data, addPost,changeTextForNe
 
     return (
         <div>
-            <NewPost value={data.newPostText} addPost={addPost} changeTextForNewPost={changeTextForNewPost}/>
+            <NewPost value={data.newPostText} dispatch={dispatch}/>
             {postsElements}
         </div>
     )

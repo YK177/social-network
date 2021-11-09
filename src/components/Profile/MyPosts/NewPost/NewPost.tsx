@@ -1,20 +1,23 @@
 import React, {ChangeEvent} from 'react';
 import s from './NewPost.module.css';
+import {GeneralActionType} from '../../../../redux/store';
 
 type NewPostPropsType = {
     value: string
-    addPost: () => void
-    changeTextForNewPost: (newText: string) => void
+    dispatch: (action: GeneralActionType) => void
 }
 
-export const NewPost: React.FC<NewPostPropsType> = ({addPost, value, changeTextForNewPost}) => {
+export const NewPost: React.FC<NewPostPropsType> = ({value,dispatch}) => {
 
     const onClickHandler = () => {
-        addPost()
+        dispatch({type: 'ADD-POST'})
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        changeTextForNewPost(e.currentTarget.value)
+        dispatch({
+            type:'UPDATE-NEW-POST-TEXT',
+            newText:e.currentTarget.value
+        })
     }
 
     return (

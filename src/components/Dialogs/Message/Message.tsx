@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Message.module.css';
-import {MessageType} from '../../../redux/state';
+import {MessageType} from '../../../redux/store';
 
 type MessagePropsType = {
     data: MessageType
