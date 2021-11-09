@@ -3,6 +3,7 @@ import s from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
 import {DialogsPageType} from '../../redux/state';
+import {NewMessage} from './NewMessage/NewMessage';
 
 type DialogsPropsType = {
     data: DialogsPageType
@@ -31,8 +32,12 @@ export const Dialogs: React.FC<DialogsPropsType> = ({data}) => {
             <div className={s.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={s.massages}>
-                {messagesElements}
+            <div className={s.messageBlock}>
+                <div className={s.massages}>
+                    {messagesElements}
+
+                </div>
+                <NewMessage/>
             </div>
         </div>
     )

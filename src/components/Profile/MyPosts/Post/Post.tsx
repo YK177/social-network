@@ -28,7 +28,7 @@ export const Post: React.FC<PostPropsType> = ({ avatar, name, lastSeen, comment,
                         </div>
                         <div className={s.item}>
                             <button>Share</button>
-                            <p>{shareCounter}</p>
+                            <p>{shareCounter} shared your post</p>
                         </div>
                     </div>
                 </div>

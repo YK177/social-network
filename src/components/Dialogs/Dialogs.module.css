@@ -11,7 +11,13 @@
     padding: 15px;
 }
 
+.messageBlock{
+    display: flex;
+    flex-direction: column;
+}
+
 .massages {
+    flex: 1 1 auto;
     background-color: #fff;
     display: flex;
     flex-direction: column;

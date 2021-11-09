@@ -1,12 +1,27 @@
-import React from "react";
+import React, {ChangeEvent} from 'react';
 import s from './NewPost.module.css';
 
-export const NewPost = () => {
+type NewPostPropsType = {
+    value: string
+    addPost: () => void
+    changeTextForNewPost: (newText: string) => void
+}
+
+export const NewPost: React.FC<NewPostPropsType> = ({addPost, value, changeTextForNewPost}) => {
+
+    const onClickHandler = () => {
+        addPost()
+    }
+
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        changeTextForNewPost(e.currentTarget.value)
+    }
+
     return (
         <div className={s.body}>
-            <textarea className={s.textarea} placeholder={'Say something'}/>
+            <textarea onChange={onChangeHandler} className={s.textarea} value={value}/>
             <div className={s.btn_wrapper}>
-                <button className={s.btn}>add post</button>
+                <button onClick={onClickHandler} className={s.btn}>add post</button>
             </div>
         </div>
     )

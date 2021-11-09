@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {StateType} from './redux/state';
+import {StoreType} from './redux/state';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {Header} from './components/Header/Header';
 import {SideBar} from './components/Sidebar/SideBar';
@@ -12,10 +12,12 @@ import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 
 type AppPropsType = {
-    state: StateType
+    store: StoreType
 }
 
-const App: React.FC<AppPropsType> = ({state}) => {
+const App: React.FC<AppPropsType> = ({store}) => {
+    const state = store.getState()
+
     return (
         <BrowserRouter>
             <div className="page">
@@ -23,7 +25,11 @@ const App: React.FC<AppPropsType> = ({state}) => {
                 <SideBar data={state.sideBar}/>
                 <main className={'content'}>
                     <Route path={'/dialogs'} render={() => <Dialogs data={state.dialogsPage}/>}/>
-                    <Route path={'/profile'} render={() => <Profile data={state.profilePage}/>}/>
+                    <Route path={'/profile'} render={() => <Profile
+                        data={state.profilePage}
+                        addPost={store.addPost.bind(store)}
+                        changeTextForNewPost={store.changeTextForNewPost.bind(store)}
+                    />}/>
                     <Route path={'/news'} render={() => <News/>}/>
                     <Route path={'/music'} render={() => <Music/>}/>
                     <Route path={'/settings'} render={() => <Settings/>}/>
