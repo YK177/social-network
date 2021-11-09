@@ -1,17 +1,25 @@
 import s from './NewMessage.module.css';
-import React from 'react';
+import React, {ChangeEvent} from 'react';
+import {ActionType, addMassageAC, updateNewMessageTextAC} from '../../../redux/store';
 
-export const NewMessage = () => {
+type NewMessagePropsType = {
+    value: string
+    dispatch: (action: ActionType) => void
+}
 
-    const newMassageElement = React.createRef<HTMLTextAreaElement>()
+export const NewMessage: React.FC<NewMessagePropsType> = ({value, dispatch}) => {
 
     const onClickHandler = () => {
-        alert(newMassageElement.current?.value)
+        dispatch(addMassageAC())
+    }
+
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        dispatch(updateNewMessageTextAC(e.currentTarget.value))
     }
 
     return (
         <div className={s.body}>
-            <textarea className={s.textarea} placeholder={'Say something'} ref={newMassageElement}/>
+            <textarea className={s.textarea} placeholder={'Say something...'} onChange={onChangeHandler} value={value}/>
             <div className={s.btn_wrapper}>
                 <button onClick={onClickHandler} className={s.btn}>send</button>
             </div>

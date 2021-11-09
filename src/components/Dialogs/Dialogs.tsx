@@ -2,14 +2,15 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
-import {DialogsPageType} from '../../redux/store';
+import {ActionType, DialogsPageType} from '../../redux/store';
 import {NewMessage} from './NewMessage/NewMessage';
 
 type DialogsPropsType = {
     data: DialogsPageType
+    dispatch:(action:ActionType)=>void
 }
 
-export const Dialogs: React.FC<DialogsPropsType> = ({data}) => {
+export const Dialogs: React.FC<DialogsPropsType> = ({data,dispatch}) => {
 
     const dialogsElements = data.dialogs.map(d => (
             <DialogItem
@@ -37,7 +38,7 @@ export const Dialogs: React.FC<DialogsPropsType> = ({data}) => {
                     {messagesElements}
 
                 </div>
-                <NewMessage/>
+                <NewMessage value={data.newMessageText} dispatch={dispatch}/>
             </div>
         </div>
     )

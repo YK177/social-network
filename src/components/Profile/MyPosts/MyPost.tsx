@@ -1,11 +1,11 @@
 import React from 'react';
 import {NewPost} from './NewPost/NewPost';
 import {Post} from './Post/Post';
-import {GeneralActionType, ProfilePageType} from '../../../redux/store';
+import {ActionType, ProfilePageType} from '../../../redux/store';
 
 type MyPostPropsType = {
     data: ProfilePageType
-    dispatch: (action: GeneralActionType) => void
+    dispatch: (action: ActionType) => void
 }
 
 export const MyPost: React.FC<MyPostPropsType> = ({data, dispatch}) => {

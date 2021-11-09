@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {StoreType} from './redux/store';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route} from 'react-router-dom';
 import {Header} from './components/Header/Header';
 import {SideBar} from './components/Sidebar/SideBar';
 import {Profile} from './components/Profile/Profile';
@@ -24,9 +24,13 @@ const App: React.FC<AppPropsType> = ({store}) => {
                 <Header/>
                 <SideBar data={state.sideBar}/>
                 <main className={'content'}>
-                    <Route path={'/dialogs'} render={() => <Dialogs data={state.dialogsPage}/>}/>
+                    <Route path={'/'} exact render={() => <Redirect to={'/profile'}/>}/>
                     <Route path={'/profile'} render={() => <Profile
                         data={state.profilePage}
+                        dispatch={store.dispatch.bind(store)}
+                    />}/>
+                    <Route path={'/dialogs'} render={() => <Dialogs
+                        data={state.dialogsPage}
                         dispatch={store.dispatch.bind(store)}
                     />}/>
                     <Route path={'/news'} render={() => <News/>}/>
