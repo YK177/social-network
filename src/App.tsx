@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
-import {StoreType} from './redux/store';
+import {ActionType, StateType} from './redux/redux-store';
 import {HashRouter} from 'react-router-dom';
 import {Header} from './components/Header/Header';
 import {SideBar} from './components/Sidebar/SideBar';
 import {Footer} from './components/Footer/Footer';
-import {Routes} from "./Routes";
+import {Routes} from './Routes';
 
 type AppPropsType = {
-    store: StoreType
+    state: StateType
+    dispatch: (action: ActionType) => void
 }
 
-const App: React.FC<AppPropsType> = ({store}) => {
-    const state = store.getState()
+const App: React.FC<AppPropsType> = ({state, dispatch}) => {
+
 
     return (
         <HashRouter>
@@ -20,7 +21,7 @@ const App: React.FC<AppPropsType> = ({store}) => {
                 <Header/>
                 <SideBar data={state.sideBar}/>
                 <main className={'content'}>
-                    <Routes store={store}/>
+                    <Routes state={state} dispatch={dispatch}/>
                 </main>
                 <Footer/>
             </div>

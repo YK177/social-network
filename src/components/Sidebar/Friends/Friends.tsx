@@ -1,8 +1,8 @@
 import s from './Friends.module.css';
 import React from 'react';
 import {Friend} from './Friend/Friend';
-import {FriendType} from '../../../redux/store';
 import {NavLink} from 'react-router-dom';
+import { FriendType } from '../../../redux/sidebar-reducer';
 
 type FriendsPropsType = {
     friendsList: FriendType[]
