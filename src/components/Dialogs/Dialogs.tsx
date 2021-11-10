@@ -1,45 +1,36 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import {DialogItem} from './DialogItem/DialogItem';
-import {Message} from './Message/Message';
 import {NewMessage} from './NewMessage/NewMessage';
+import {DialogItem} from './DialogItem/DialogItem';
 import {DialogsPageType} from '../../redux/dialogs-reducer';
-import { ActionType } from '../../redux/redux-store';
+import {Message} from './Message/Message';
 
 type DialogsPropsType = {
     data: DialogsPageType
-    dispatch:(action:ActionType)=>void
+    sendMessage: () => void
+    updateText: (text: string) => void
 }
 
-export const Dialogs: React.FC<DialogsPropsType> = ({data,dispatch}) => {
-
-    const dialogsElements = data.dialogs.map(d => (
-            <DialogItem
-                key={d.id}
-                data={d}
-            />
-        )
-    )
-
-    const messagesElements = data.messages.map(m => (
-            <Message
-                key={m.id}
-                data={m}
-            />
-        )
-    )
+export const Dialogs:React.FC<DialogsPropsType> = ({data,sendMessage,updateText}) => {
 
     return (
         <div className={s.container}>
             <div className={s.dialogsItems}>
-                {dialogsElements}
+                {data.dialogs.map(d => (
+                    <DialogItem key={d.id} data={d}/>)
+                )}
             </div>
             <div className={s.messageBlock}>
                 <div className={s.massages}>
-                    {messagesElements}
-
+                    {data.messages.map(m => (
+                        <Message key={m.id} data={m}/>)
+                    )}
                 </div>
-                <NewMessage value={data.newMessageText} dispatch={dispatch}/>
+                <NewMessage
+                    value={data.newMessageText}
+                    sendMessage={sendMessage}
+                    updateText={updateText}
+                />
             </div>
         </div>
     )

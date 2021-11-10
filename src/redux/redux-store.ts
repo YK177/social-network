@@ -1,19 +1,16 @@
 import {combineReducers, createStore} from 'redux';
-import profileReducer, {ProfileActionType, ProfilePageType} from './profile-reducer';
-import dialogsReducer, {DialogsActionType, DialogsPageType} from './dialogs-reducer';
-import sidebarReducer, {SideBarType} from './sidebar-reducer';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import sidebarReducer from './sidebar-reducer';
 
-export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
-    sideBar: SideBarType
-}
-export type ActionType = ProfileActionType | DialogsActionType
+export type StoreType = typeof store
 
-const reducers = combineReducers({
+const RootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sideBar: sidebarReducer
 })
 
-export let store = createStore(reducers);
+let store = createStore(RootReducer);
+
+export default store

@@ -1,21 +1,18 @@
 import React, {ChangeEvent} from 'react';
 import s from './NewPost.module.css';
-import { addPostAC, updateNewPostTextAC } from '../../../../redux/profile-reducer';
-import { ActionType } from '../../../../redux/redux-store';
 
 type NewPostPropsType = {
     value: string
-    dispatch: (action: ActionType) => void
+    addPost: () => void
+    updateText: (text: string) => void
 }
 
-export const NewPost: React.FC<NewPostPropsType> = ({value, dispatch}) => {
+export const NewPost: React.FC<NewPostPropsType> = ({value, addPost, updateText}) => {
 
-    const onClickHandler = () => {
-        dispatch(addPostAC())
-    }
+    const onClickHandler = () => addPost()
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        dispatch(updateNewPostTextAC(e.currentTarget.value))
+        updateText(e.currentTarget.value)
     }
 
     return (
