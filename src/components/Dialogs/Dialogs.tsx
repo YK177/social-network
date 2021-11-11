@@ -12,7 +12,6 @@ type DialogsPropsType = {
 }
 
 export const Dialogs:React.FC<DialogsPropsType> = ({data,sendMessage,updateText}) => {
-
     return (
         <div className={s.container}>
             <div className={s.dialogsItems}>

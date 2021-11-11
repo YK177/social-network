@@ -4,11 +4,9 @@ export type FriendType = {
     firstName: string
     lastName: string
 }
-export type SideBarType = {
-    friends: FriendType[]
-}
+export type SideBarType = typeof initialState
 
-const initialState: SideBarType = {
+const initialState = {
     friends: [
         {
             id: 1,
@@ -28,10 +26,10 @@ const initialState: SideBarType = {
             firstName: 'Albert',
             lastName: 'Herrera'
         }
-    ]
+    ] as FriendType[]
 }
 
-const sidebarReducer = (state = initialState) => {
+const sidebarReducer = (state: SideBarType = initialState) => {
     return state
 }
 

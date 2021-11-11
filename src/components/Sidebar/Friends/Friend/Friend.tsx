@@ -9,6 +9,7 @@ type FriendPropsType = {
 
 export const Friend:React.FC<FriendPropsType> = ({friend}) => {
     let path = `/my-friends/${friend.id}`
+
     return (
         <NavLink to={path} className={s.friend} activeClassName={s.active}>
             <div className={s.avatar}>

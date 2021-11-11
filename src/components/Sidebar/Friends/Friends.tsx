@@ -5,12 +5,12 @@ import {NavLink} from 'react-router-dom';
 import {FriendType} from '../../../redux/sidebar-reducer';
 
 type FriendsPropsType = {
-    friendsList: FriendType[]
+    data: FriendType[]
 }
 
-export const Friends: React.FC<FriendsPropsType> = ({friendsList}) => {
+export const Friends: React.FC<FriendsPropsType> = ({data}) => {
 
-    const mappedFriends = friendsList.map(f => (
+    const mappedFriends = data.map(f => (
         <Friend
             key={f.id}
             friend={f}
