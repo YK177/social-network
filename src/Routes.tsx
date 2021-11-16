@@ -5,6 +5,7 @@ import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import React from 'react';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
+import {UsersContainer} from './components/Users/UsersContainer';
 
 export const Routes = () => {
     return (
@@ -12,6 +13,7 @@ export const Routes = () => {
             <Route path={'/'} exact render={() => <Redirect to={'/profile'}/>}/>
             <Route path={'/profile'} render={() => <Profile/>}/>
             <Route path={'/dialogs'} render={() => <DialogsContainer/>}/>
+            <Route path={'/users'} render={() => <UsersContainer/>}/>
             <Route path={'/news'} render={() => <News/>}/>
             <Route path={'/music'} render={() => <Music/>}/>
             <Route path={'/settings'} render={() => <Settings/>}/>

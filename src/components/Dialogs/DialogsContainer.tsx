@@ -12,12 +12,12 @@ type MapDispatchPropsType = {
     updateText: (text: string) => void
 }
 
-const MapStateToProps = (state: AppStateType): MapStatePropsType => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         data: state.dialogsPage
     }
 }
-const MapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         sendMessage: () => {
             dispatch(addMassageAC())
@@ -28,4 +28,4 @@ const MapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     }
 }
 
-export const DialogsContainer = connect(MapStateToProps, MapDispatchToProps)(Dialogs)
+export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)

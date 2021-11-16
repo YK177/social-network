@@ -6,12 +6,12 @@ import {AppStateType} from '../../../redux/store';
 type MapStatePropsType = {
     data: FriendType[]
 }
-const MapStateToProps = (state: AppStateType): MapStatePropsType => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         data: state.sideBar.friends
     }
 }
 
-export const FriendsContainer = connect(MapStateToProps)(Friends)
+export const FriendsContainer = connect(mapStateToProps)(Friends)
 
 

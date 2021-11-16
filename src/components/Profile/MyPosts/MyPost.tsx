@@ -10,6 +10,7 @@ type MyPostPropsType = {
 }
 
 export const MyPost: React.FC<MyPostPropsType> = ({data, addPostCallback, updateTextCallback}) => {
+
     const postsElements = data.posts.map(p => (
         <Post key={p.id} data={p}/>)
     )

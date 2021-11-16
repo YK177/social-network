@@ -2,7 +2,7 @@ import {addPostAC, ProfilePageType, updateNewPostTextAC} from '../../../redux/pr
 import {connect} from 'react-redux';
 import {AppStateType} from '../../../redux/store';
 import {Dispatch} from 'redux';
-import { MyPost } from './MyPost';
+import {MyPost} from './MyPost';
 
 type MapStatePropsType = {
     data: ProfilePageType
@@ -12,12 +12,12 @@ type MapDispatchPropsType = {
     updateTextCallback: (text: string) => void
 }
 
-const MapStateToProps = (state: AppStateType): MapStatePropsType => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         data: state.profilePage
     }
 }
-const MapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         addPostCallback: () => {
             dispatch(addPostAC())
@@ -28,4 +28,4 @@ const MapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     }
 }
 
-export const MyPostContainer = connect(MapStateToProps, MapDispatchToProps)(MyPost)
+export const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPost)
