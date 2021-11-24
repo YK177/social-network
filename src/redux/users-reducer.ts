@@ -14,7 +14,7 @@ export type UsersPageType = typeof initialState
 
 const initialState = {
     users: [] as UserType[],
-    pageSize: 12,
+    pageSize: 15,
     totalUsersCount: 0,
     currentPage: 1
 }

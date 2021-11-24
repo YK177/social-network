@@ -1,4 +1,4 @@
-.user {
+.dialog {
     padding: 10px;
     display: flex;
     align-items: center;
@@ -9,28 +9,28 @@
     border-radius: 10px;
 }
 
-.user:hover {
+.dialog:hover {
     background-color: #f1f1f1;
     box-shadow: 2px 2px 5px #a0a0a0;
 }
 
-.user:active {
+.dialog:active {
     background-color: #a0a0a0;
     box-shadow: none;
 }
 
-.user.active {
+.dialog.active {
     background-color: #f1f1f1;
 }
 
-.user p {
+.dialog p {
     flex: 1 1 auto;
     font-size: 16px;
     font-weight: 500;
     color: #333333;
 }
 
-.user.active p{
+.dialog.active p{
     color: #444444;
     font-weight: 700;
 }

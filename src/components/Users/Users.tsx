@@ -41,10 +41,10 @@ export class Users extends React.Component<UsersPropsType> {
         const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
 
         const pages = []
-        for (let i = 1; i <= pagesCount; i++) {
+        for (let i = this.props.currentPage; i <= pagesCount; i++) {
             pages.push(i)
+            if (pages.length === 10) break
         }
-
 
         return (
             <div className={s.usersPage}>
@@ -54,10 +54,11 @@ export class Users extends React.Component<UsersPropsType> {
                             return (
                                 <button
                                     onClick={() => this.onPageChanged(page)}
-                                    className={page === this.props.currentPage ? s.selected : ''}
+                                    className={`${s.btn} ${page === this.props.currentPage ? s.selected : ''}`}
                                     key={page}>
                                     {page}
-                                </button>)
+                                </button>
+                            )
                         })
                     }
                 </div>
