@@ -1,5 +1,79 @@
-.users{}
+.usersPage {
+    padding: 10px;
+    background-color: #f1f1f1;
+}
 
-.selected{
+.users {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+}
+
+.user {
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: #fff;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.user:hover {
+    box-shadow: 2px 2px 5px #a0a0a0;
+}
+
+.user:active {
+    background-color: #a0a0a0;
+    box-shadow: none;
+}
+
+.avatar {
+    flex: 0 0 30%;
+    margin-right: 10px;
+}
+
+.avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.status {
+    color: #333333;
+}
+
+.btn_wrapper {
+    text-align: right;
+}
+
+.btn {
+    color: #fff;
+    font-size: 12px;
     font-weight: 700;
+    line-height: 1;
+    padding: 11px 28px;
+    display: inline-block;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background-color: #dc4734;
+    transition: background-color ease 0.5s;
+}
+
+.btn:hover {
+    background-color: #333333;
 }

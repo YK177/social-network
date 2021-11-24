@@ -45,9 +45,10 @@ export class Users extends React.Component<UsersPropsType> {
             pages.push(i)
         }
 
+
         return (
-            <div className={s.users}>
-                <div>
+            <div className={s.usersPage}>
+                <div className={s.pagination}>
                     {
                         pages.map(page => {
                             return (
@@ -60,39 +61,38 @@ export class Users extends React.Component<UsersPropsType> {
                         })
                     }
                 </div>
-                {
-                    this.props.users.map(user => {
-                        const onFollowHandler = () => {
-                            this.props.followUser(user.id)
-                        }
-                        const onUnfollowHandler = () => {
-                            this.props.unFollowUser(user.id)
-                        }
-                        return (
-                            <div
-                                key={user.id}>
-                                < div>
-                                    < div>
-                                        < img
+                <div className={s.users}>
+                    {
+                        this.props.users.map(user => {
+                            const onFollowHandler = () => {
+                                this.props.followUser(user.id)
+                            }
+                            const onUnfollowHandler = () => {
+                                this.props.unFollowUser(user.id)
+                            }
+                            return (
+                                <div key={user.id} className={s.user}>
+                                    <div className={s.avatar}>
+                                        <img
                                             src={user.photos.small || avatar}
-                                            alt={user.name}
-                                        />
+                                            alt={user.name}/>
                                     </div>
-                                    {
-                                        user.followed
-                                            ? <button onClick={onUnfollowHandler}>Unfollow</button>
-                                            : <button onClick={onFollowHandler}>Follow</button>
-                                    }
-                                </div>
-                                <div>
-                                    <div>
-                                        <span>{user.name}</span>
-                                        <span>{user.status}</span>
+                                    <div className={s.info}>
+                                        <p className={s.name}>{user.name}</p>
+                                        <p className={s.status}>{user.status}</p>
+                                        <div className={s.btn_wrapper}>
+                                            {
+                                                user.followed
+                                                    ? <button className={s.btn}
+                                                              onClick={onUnfollowHandler}>Unfollow</button>
+                                                    :
+                                                    <button className={s.btn} onClick={onFollowHandler}>Follow</button>
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                            </div>)
-                    })
-                }
+                                </div>)
+                        })
+                    }</div>
             </div>
         )
     }
