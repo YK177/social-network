@@ -1,11 +1,12 @@
-import {Redirect, Route, Switch} from 'react-router-dom';
-import {Profile} from './components/Profile/Profile';
-import {News} from './components/News/News';
-import {Music} from './components/Music/Music';
-import {Settings} from './components/Settings/Settings';
-import React from 'react';
-import {DialogsContainer} from './components/Dialogs/DialogsContainer';
-import {UsersContainer} from './components/Users/UsersContainer';
+import {Redirect, Route, Switch} from 'react-router-dom'
+import {Profile} from './components/Profile/Profile'
+import {News} from './components/News/News'
+import {Music} from './components/Music/Music'
+import {Settings} from './components/Settings/Settings'
+import React from 'react'
+import {DialogsContainer} from './components/Dialogs/DialogsContainer'
+import UsersContainer from './components/Users/UsersContainer'
+
 
 export const Routes = () => {
     return (
