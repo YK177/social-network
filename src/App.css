@@ -98,11 +98,37 @@ h1, h2, h3, h4, h5, h6 {
     background: #fff;
 }
 
-/*preloader*/
+/*button primary*/
 
-.preloader {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 11px 28px;
+    display: inline-block;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background-color: #dc4734;
+    transition: background-color ease 0.5s;
+}
+
+.btn:hover {
+    background-color: #333333;
+}
+
+.btn-login {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dc4734;
+    line-height: 1;
+    padding: 12px 32px;
+    display: inline-block;
+    border: 1px solid transparent;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+.btn-login:hover{
+    background-color: #333333;
 }

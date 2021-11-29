@@ -12,7 +12,7 @@ import {
 import React from 'react'
 import axios from 'axios'
 import {Users} from './Users'
-import {Preloader} from '../common/Preloader'
+import {Preloader} from '../common/Preloader/Preloader'
 
 type UsersContainerType = {
     users: UserType[]

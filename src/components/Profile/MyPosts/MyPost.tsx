@@ -1,7 +1,7 @@
-import {NewPost} from './NewPost/NewPost';
-import React from 'react';
-import {Post} from './Post/Post';
-import {ProfilePageType} from '../../../redux/profile-reducer';
+import React from 'react'
+import {Post} from './Post/Post'
+import {ProfilePageType} from '../../../redux/profile-reducer'
+import {AddItemForm} from '../../common/AddItemForm/AddItemForm'
 
 type MyPostPropsType = {
     data: ProfilePageType
@@ -17,11 +17,10 @@ export const MyPost: React.FC<MyPostPropsType> = ({data, addPost, updateNewPostT
 
     return (
         <div>
-            <NewPost
+            <AddItemForm
                 value={data.newPostText}
-                addPost={addPost}
-                updateText={updateNewPostText}
-            />
+                addItem={addPost}
+                updateText={updateNewPostText}>Add post</AddItemForm>
             {postsElements}
         </div>
     )

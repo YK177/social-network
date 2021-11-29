@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import s from './Post.module.css'
-import {PostType} from '../../../../redux/profile-reducer';
+import {PostType} from '../../../../redux/profile-reducer'
 
 type PostPropsType = {
-    data:PostType
+    data: PostType
 }
 
-export const Post: React.FC<PostPropsType> = ({ data}) => {
+export const Post: React.FC<PostPropsType> = ({data}) => {
     return (
         <div className={s.alt_message}>
             <div className={s.container}>
@@ -25,11 +25,11 @@ export const Post: React.FC<PostPropsType> = ({ data}) => {
                     </p>
                     <div className={s.testimonials}>
                         <div className={s.item}>
-                            <button>Like</button>
+                            <button className={'btn'}>Like</button>
                             <p>{data.likeCounter} people liked this</p>
                         </div>
                         <div className={s.item}>
-                            <button>Share</button>
+                            <button className={'btn'}>Share</button>
                             <p>{data.shareCounter} shared your post</p>
                         </div>
                     </div>

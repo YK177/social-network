@@ -1,0 +1,18 @@
+.body{
+    padding: 15px;
+    background: #fff;
+}
+
+.textarea{
+    width: 100%;
+    min-height: 80px;
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.btn_wrapper{
+    text-align: right;
+}
+

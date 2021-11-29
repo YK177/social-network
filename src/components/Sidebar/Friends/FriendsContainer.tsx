@@ -1,7 +1,7 @@
-import {connect} from 'react-redux';
-import {Friends} from './Friends';
-import {FriendType} from '../../../redux/sidebar-reducer';
-import {AppStateType} from '../../../redux/store';
+import {connect} from 'react-redux'
+import {Friends} from './Friends'
+import {FriendType} from '../../../redux/sidebar-reducer'
+import {AppStateType} from '../../../redux/store'
 
 type MapStatePropsType = {
     data: FriendType[]

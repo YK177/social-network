@@ -1,7 +1,7 @@
-import {NavLink} from 'react-router-dom';
-import s from './DialogItem.module.css';
-import React from 'react';
-import { DialogType } from '../../../redux/dialogs-reducer';
+import {NavLink} from 'react-router-dom'
+import s from './DialogItem.module.css'
+import React from 'react'
+import {DialogType} from '../../../redux/dialogs-reducer'
 
 
 type DialogItemPropsType = {
@@ -11,7 +11,7 @@ type DialogItemPropsType = {
 
 export const DialogItem: React.FC<DialogItemPropsType> = ({data}) => {
 
-    let path = `/dialogs/${data.id}`;
+    let path = `/dialogs/${data.id}`
 
     return (
         <NavLink to={path} className={s.dialog} activeClassName={s.active}>

@@ -65,18 +65,4 @@
 
 .item button {
     margin-right: 10px;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    padding: 11px 28px;
-    display: inline-block;
-    border-radius: 50px;
-    text-transform: uppercase;
-    background-color: #dc4734;
-    transition: background-color ease 0.5s;
-}
-
-.item button:hover{
-    background-color: #333333;
 }

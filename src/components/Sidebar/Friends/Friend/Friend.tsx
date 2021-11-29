@@ -1,13 +1,13 @@
-import {NavLink} from 'react-router-dom';
-import s from './Friend.module.css';
-import React from 'react';
-import {FriendType} from '../../../../redux/sidebar-reducer';
+import {NavLink} from 'react-router-dom'
+import s from './Friend.module.css'
+import React from 'react'
+import {FriendType} from '../../../../redux/sidebar-reducer'
 
 type FriendPropsType = {
     friend: FriendType
 }
 
-export const Friend:React.FC<FriendPropsType> = ({friend}) => {
+export const Friend: React.FC<FriendPropsType> = ({friend}) => {
     let path = `/my-friends/${friend.id}`
 
     return (

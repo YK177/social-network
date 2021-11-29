@@ -1,15 +1,15 @@
-import s from './NewMessage.module.css'
 import React, {ChangeEvent} from 'react'
+import s from './AddItemForm.module.css'
 
-type NewMessagePropsType = {
+type AddItemFormPropsType = {
     value: string
-    sendMessage: () => void
+    addItem: () => void
     updateText: (text: string) => void
 }
 
-export const NewMessage: React.FC<NewMessagePropsType> = ({value, sendMessage, updateText}) => {
+export const AddItemForm: React.FC<AddItemFormPropsType> = ({value, addItem, updateText, children}) => {
 
-    const onClickHandler = () => sendMessage()
+    const onClickHandler = () => addItem()
 
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         updateText(e.currentTarget.value)
@@ -23,7 +23,7 @@ export const NewMessage: React.FC<NewMessagePropsType> = ({value, sendMessage, u
                 onChange={onChangeHandler}
                 value={value}/>
             <div className={s.btn_wrapper}>
-                <button onClick={onClickHandler} className={s.btn}>send</button>
+                <button onClick={onClickHandler} className={'btn'}>{children}</button>
             </div>
         </div>
     )

@@ -11,14 +11,14 @@ const App = () => {
         <HashRouter>
             <div className="page">
                 <HeaderContainer/>
-                <SideBar />
+                <SideBar/>
                 <main className={'content'}>
-                    <Routes />
+                    <Routes/>
                 </main>
                 <Footer/>
             </div>
         </HashRouter>
-    );
+    )
 }
 
-export default App;
+export default App
