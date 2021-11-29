@@ -5,11 +5,11 @@ import {ProfilePageType} from '../../../redux/profile-reducer';
 
 type MyPostPropsType = {
     data: ProfilePageType
-    addPostCallback: () => void
-    updateTextCallback: (text: string) => void
+    addPost: () => void
+    updateNewPostText: (text: string) => void
 }
 
-export const MyPost: React.FC<MyPostPropsType> = ({data, addPostCallback, updateTextCallback}) => {
+export const MyPost: React.FC<MyPostPropsType> = ({data, addPost, updateNewPostText}) => {
 
     const postsElements = data.posts.map(p => (
         <Post key={p.id} data={p}/>)
@@ -19,8 +19,8 @@ export const MyPost: React.FC<MyPostPropsType> = ({data, addPostCallback, update
         <div>
             <NewPost
                 value={data.newPostText}
-                addPost={addPostCallback}
-                updateText={updateTextCallback}
+                addPost={addPost}
+                updateText={updateNewPostText}
             />
             {postsElements}
         </div>

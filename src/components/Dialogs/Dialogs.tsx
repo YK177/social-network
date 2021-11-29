@@ -1,17 +1,17 @@
-import React from 'react';
-import s from './Dialogs.module.css';
-import {NewMessage} from './NewMessage/NewMessage';
-import {DialogItem} from './DialogItem/DialogItem';
-import {DialogsPageType} from '../../redux/dialogs-reducer';
-import {Message} from './Message/Message';
+import React from 'react'
+import s from './Dialogs.module.css'
+import {NewMessage} from './NewMessage/NewMessage'
+import {DialogItem} from './DialogItem/DialogItem'
+import {DialogsPageType} from '../../redux/dialogs-reducer'
+import {Message} from './Message/Message'
 
 type DialogsPropsType = {
     data: DialogsPageType
-    sendMessage: () => void
-    updateText: (text: string) => void
+    addMassage: () => void
+    updateNewMessageText: (text: string) => void
 }
 
-export const Dialogs:React.FC<DialogsPropsType> = ({data,sendMessage,updateText}) => {
+export const Dialogs:React.FC<DialogsPropsType> = ({data,addMassage,updateNewMessageText}) => {
     return (
         <div className={s.container}>
             <div className={s.dialogsItems}>
@@ -27,8 +27,8 @@ export const Dialogs:React.FC<DialogsPropsType> = ({data,sendMessage,updateText}
                 </div>
                 <NewMessage
                     value={data.newMessageText}
-                    sendMessage={sendMessage}
-                    updateText={updateText}
+                    sendMessage={addMassage}
+                    updateText={updateNewMessageText}
                 />
             </div>
         </div>

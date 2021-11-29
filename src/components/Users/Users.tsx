@@ -2,6 +2,7 @@ import {UserType} from '../../redux/users-reducer'
 import React from 'react'
 import s from './Users.module.css'
 import avatar from '../../assets/images/user.jpg'
+import {NavLink} from 'react-router-dom'
 
 type UsersPropsType = {
     totalUsersCount: number
@@ -48,30 +49,32 @@ export const Users: React.FC<UsersPropsType> = (props) => {
                             props.unFollowUser(user.id)
                         }
                         return (
-                            <div key={user.id} className={s.user}>
-                                <div className={s.avatar}>
-                                    <img
-                                        src={user.photos.small || avatar}
-                                        alt={user.name}/>
-                                </div>
-                                <div className={s.info}>
-                                    <p className={s.name}>{user.name}</p>
-                                    <p className={s.status}>{user.status}</p>
-                                    <div className={s.btn_wrapper}>
-                                        {
-                                            user.followed
-                                                ? (<button className={s.btn}
-                                                           onClick={onUnfollowHandler}>
-                                                    Unfollow
-                                                </button>)
-                                                : (<button className={s.btn}
-                                                           onClick={onFollowHandler}>
-                                                    Follow
-                                                </button>)
-                                        }
+                            <NavLink to={'/profile/' + user.id} key={user.id}>
+                                <div className={s.user}>
+                                    <div className={s.avatar}>
+                                        <img
+                                            src={user.photos.small || avatar}
+                                            alt={user.name}/>
+                                    </div>
+                                    <div className={s.info}>
+                                        <p className={s.name}>{user.name}</p>
+                                        <p className={s.status}>{user.status}</p>
+                                        <div className={s.btn_wrapper}>
+                                            {
+                                                user.followed
+                                                    ? (<button className={s.btn}
+                                                               onClick={onUnfollowHandler}>
+                                                        Unfollow
+                                                    </button>)
+                                                    : (<button className={s.btn}
+                                                               onClick={onFollowHandler}>
+                                                        Follow
+                                                    </button>)
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>)
+                            </NavLink>)
                     })
                 }</div>
         </div>

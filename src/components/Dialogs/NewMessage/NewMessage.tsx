@@ -1,5 +1,5 @@
-import s from './NewMessage.module.css';
-import React, {ChangeEvent} from 'react';
+import s from './NewMessage.module.css'
+import React, {ChangeEvent} from 'react'
 
 type NewMessagePropsType = {
     value: string
