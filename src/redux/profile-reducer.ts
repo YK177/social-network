@@ -1,22 +1,22 @@
 export type ProfileType = {
-    aboutMe: string
+    aboutMe: string | null
     contacts: {
-        facebook: string
-        website: string
-        vk: string
-        twitter: string
-        instagram: string
-        youtube: string
-        github: string
-        mainLink: string
+        facebook: string | null
+        website: string | null
+        vk: string | null
+        twitter: string | null
+        instagram: string | null
+        youtube: string | null
+        github: string | null
+        mainLink: string | null
     },
     lookingForAJob: boolean
-    lookingForAJobDescription: string
+    lookingForAJobDescription: string | null
     fullName: string
     userId: number
     photos: {
-        small: string
-        large: string
+        small: string | null
+        large: string | null
     }
 }
 
@@ -32,7 +32,27 @@ export type PostType = {
 export type ProfilePageType = typeof initialState
 
 const initialState = {
-    profile: {} as ProfileType,
+    profile: {
+        'aboutMe': 'я круто чувак 1001%',
+        'contacts': {
+            'facebook': 'facebook.com',
+            'website': null,
+            'vk': 'vk.com/dimych',
+            'twitter': 'https://twitter.com/@sdf',
+            'instagram': 'instagra.com/sds',
+            'youtube': null,
+            'github': 'github.com',
+            'mainLink': null
+        },
+        'lookingForAJob': true,
+        'lookingForAJobDescription': 'не ищу, а дурачусь',
+        'fullName': 'samurai dimych',
+        'userId': 2,
+        'photos': {
+            'small': 'https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0',
+            'large': 'https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0'
+        }
+    } as ProfileType,
     newPostText: '',
     posts: [
         {

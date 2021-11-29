@@ -11,6 +11,7 @@ export const Profile: React.FC<ProfilePropsType> = ({profile}) => {
     return (
         <>
             <UserInfo profile={profile}/>
+
             <MyPostContainer/>
         </>
     )
