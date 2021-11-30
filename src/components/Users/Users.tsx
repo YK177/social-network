@@ -30,7 +30,7 @@ export const Users: React.FC<UsersPropsType> = (props) => {
                         return (
                             <button
                                 onClick={() => props.onPageChanged(page)}
-                                className={`btn ${page === props.currentPage ? s.selected : ''}`}
+                                className={`btn ${page === props.currentPage && s.selected}`}
                                 key={page}>
                                 {page}
                             </button>
@@ -42,7 +42,8 @@ export const Users: React.FC<UsersPropsType> = (props) => {
                 {
                     props.users.map(user => {
                         return (
-                            <User key={user.id} user={user} followUser={props.followUser} unFollowUser={props.unFollowUser}/>
+                            <User key={user.id} user={user} followUser={props.followUser}
+                                  unFollowUser={props.unFollowUser}/>
                         )
                     })
                 }</div>

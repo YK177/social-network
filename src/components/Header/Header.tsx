@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderPropsType> = (props) => {
             <div>
                 {
                     props.isAuth
-                        ? <span>{props.login}</span>
+                        ? <span className={s.login}>{props.login}</span>
                         : <NavLink to={'/login'} className={'btn-login'}>login</NavLink>
                 }
             </div>

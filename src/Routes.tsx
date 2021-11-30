@@ -9,8 +9,8 @@ import ProfileContainer from './components/Profile/ProfileContainer'
 export const Routes = () => {
     return (
         <Switch>
-            <Route path={'/'} exact render={() => <Redirect to={'/profile'}/>}/>
-            <Route path={'/profile/:userId?'} render={() => <ProfileContainer/>}/>
+            <Route path={'/'} exact render={() => <Redirect to={'/profile:userId'}/>}/>
+            <Route path={'/profile/:userId'} render={() => <ProfileContainer/>}/>
             <Route path={'/dialogs'} render={() => <DialogsContainer/>}/>
             <Route path={'/users'} render={() => <UsersContainer/>}/>
             <Route path={'/settings'} render={() => <Settings/>}/>
