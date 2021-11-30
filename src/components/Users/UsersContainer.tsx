@@ -4,7 +4,7 @@ import {
     followUser,
     setCurrentPage,
     setTotalUsersCount,
-    setUsers,
+    setUsers, toggleFollowingProgress,
     toggleIsFetching,
     unFollowUser,
     UserType
@@ -23,12 +23,13 @@ type MapStatePropsType = {
 }
 
 type MapDispatchPropsType = {
-    followUser: (userID: number) => void
-    unFollowUser: (userID: number) => void
+    followUser: (userId: number) => void
+    unFollowUser: (userId: number) => void
     setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     toggleIsFetching: (isFetching: boolean) => void
+    toggleFollowingProgress: (userId: number, followingInProgress: boolean) => void
 }
 
 type UsersContainerPropsType = MapStatePropsType & MapDispatchPropsType
@@ -60,21 +61,25 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
     }
 
     onFollowUser = (userId: number) => {
+        this.props.toggleFollowingProgress(userId, true)
         followAPI
             .followUser(userId)
             .then(data => {
                 if (data.resultCode === 0) {
                     this.props.followUser(userId)
+                    this.props.toggleFollowingProgress(userId, false)
                 }
             })
     }
 
     onUnfollowUser = (userId: number) => {
+        this.props.toggleFollowingProgress(userId, true)
         followAPI
             .unfollowUser(userId)
             .then(data => {
                 if (data.resultCode === 0) {
                     this.props.unFollowUser(userId)
+                    this.props.toggleFollowingProgress(userId, false)
                 }
             })
     }
@@ -118,5 +123,6 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
+    toggleFollowingProgress,
 })(UsersContainer)
 

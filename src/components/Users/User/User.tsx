@@ -34,11 +34,13 @@ export const User: React.FC<UserPropsType> = ({user, followUser, unFollowUser}) 
                 <div className={s.btn_wrapper}>
                     {
                         user.followed
-                            ? (<button className={'btn'}
+                            ? (<button className={`btn ${user.followingInProgress && 'disabled'}`}
+                                       disabled={user.followingInProgress}
                                        onClick={onUnfollowHandler}>
                                 Unfollow
                             </button>)
-                            : (<button className={'btn'}
+                            : (<button className={`btn ${user.followingInProgress && 'disabled'}`}
+                                       disabled={user.followingInProgress}
                                        onClick={onFollowHandler}>
                                 Follow
                             </button>)
