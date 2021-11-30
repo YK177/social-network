@@ -7,16 +7,16 @@ import s from './User.module.css'
 type UserPropsType = {
     user: UserType
     followUser: (userID: number) => void
-    unFollowUser: (userID: number) => void
+    unfollowUser: (userID: number) => void
 }
-export const User: React.FC<UserPropsType> = ({user, followUser, unFollowUser}) => {
+export const User: React.FC<UserPropsType> = ({user, followUser, unfollowUser}) => {
 
     const onFollowHandler = () => {
         followUser(user.id)
     }
 
     const onUnfollowHandler = () => {
-        unFollowUser(user.id)
+        unfollowUser(user.id)
     }
 
     return (

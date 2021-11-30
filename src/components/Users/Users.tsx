@@ -10,7 +10,7 @@ type UsersPropsType = {
     onPageChanged: (page: number) => void
     users: UserType[]
     followUser: (userID: number) => void
-    unFollowUser: (userID: number) => void
+    unfollowUser: (userID: number) => void
 }
 export const Users: React.FC<UsersPropsType> = (props) => {
 
@@ -42,8 +42,11 @@ export const Users: React.FC<UsersPropsType> = (props) => {
                 {
                     props.users.map(user => {
                         return (
-                            <User key={user.id} user={user} followUser={props.followUser}
-                                  unFollowUser={props.unFollowUser}/>
+                            <User key={user.id}
+                                  user={user}
+                                  followUser={props.followUser}
+                                  unfollowUser={props.unfollowUser}
+                            />
                         )
                     })
                 }</div>

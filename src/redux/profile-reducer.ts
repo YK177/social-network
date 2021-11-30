@@ -1,3 +1,6 @@
+import {Dispatch} from 'redux'
+import {profileAPI} from '../api/api'
+
 export type ProfileType = {
     aboutMe: string | null
     contacts: {
@@ -95,7 +98,6 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
                     ...state.posts
                 ]
             }
-
         case 'UPDATE-NEW-POST-TEXT':
             return {...state, newPostText: action.newText}
         case 'SET-USER-PROFILE':
@@ -103,7 +105,6 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
                 ...state,
                 profile: action.profile
             }
-
         default:
             return state
     }
@@ -132,6 +133,14 @@ export const setUserProfile = (profile: ProfileType) => {
         type: 'SET-USER-PROFILE',
         profile,
     } as const
+}
+
+export const getUserProfile = (userId: string) => (dispatch: Dispatch) => {
+    profileAPI
+        .getUserProfile(userId)
+        .then(data => {
+            dispatch(setUserProfile(data))
+        })
 }
 
 export default profileReducer

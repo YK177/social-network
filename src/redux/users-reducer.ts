@@ -1,3 +1,6 @@
+import {Dispatch} from 'redux'
+import {usersAPI} from '../api/api'
+
 export type UserType = {
     name: string
     id: number
@@ -67,7 +70,7 @@ const usersReducer = (state: UsersPageType = initialState, action: ActionType): 
 }
 
 type ActionType = ReturnType<typeof followUser>
-    | ReturnType<typeof unFollowUser>
+    | ReturnType<typeof unfollowUser>
     | ReturnType<typeof setUsers>
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalUsersCount>
@@ -81,7 +84,7 @@ export const followUser = (userId: number) => {
     } as const
 }
 
-export const unFollowUser = (userId: number) => {
+export const unfollowUser = (userId: number) => {
     return {
         type: 'UNFOLLOW-USER',
         userId,
@@ -122,6 +125,41 @@ export const toggleFollowingProgress = (userId: number, followingInProgress: boo
         followingInProgress,
         userId,
     } as const
+}
+
+export const getUsers = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
+    dispatch(toggleIsFetching(true))
+    usersAPI
+        .getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(data.items))
+            dispatch(setTotalUsersCount(data.totalCount))
+        })
+}
+
+export const follow = (userId: number) => (dispatch: Dispatch) => {
+    dispatch(toggleFollowingProgress(userId, true))
+    usersAPI
+        .followUser(userId)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(followUser(userId))
+                dispatch(toggleFollowingProgress(userId, false))
+            }
+        })
+}
+
+export const unfollow = (userId: number) => (dispatch: Dispatch) => {
+    dispatch(toggleFollowingProgress(userId, true))
+    usersAPI
+        .unfollowUser(userId)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollowUser(userId))
+                dispatch(toggleFollowingProgress(userId, false))
+            }
+        })
 }
 
 export default usersReducer
