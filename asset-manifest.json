@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/social-network/static/css/main.db7e00d5.chunk.css",
-    "main.js": "/social-network/static/js/main.d964f32a.chunk.js",
-    "main.js.map": "/social-network/static/js/main.d964f32a.chunk.js.map",
-    "runtime-main.js": "/social-network/static/js/runtime-main.395a5fc0.js",
-    "runtime-main.js.map": "/social-network/static/js/runtime-main.395a5fc0.js.map",
-    "static/js/2.99f01612.chunk.js": "/social-network/static/js/2.99f01612.chunk.js",
-    "static/js/2.99f01612.chunk.js.map": "/social-network/static/js/2.99f01612.chunk.js.map",
-    "static/js/3.12a4c17b.chunk.js": "/social-network/static/js/3.12a4c17b.chunk.js",
-    "static/js/3.12a4c17b.chunk.js.map": "/social-network/static/js/3.12a4c17b.chunk.js.map",
+    "main.css": "/social-network/static/css/main.70b07d94.chunk.css",
+    "main.js": "/social-network/static/js/main.6f10db71.chunk.js",
+    "main.js.map": "/social-network/static/js/main.6f10db71.chunk.js.map",
+    "runtime-main.js": "/social-network/static/js/runtime-main.46aff9ab.js",
+    "runtime-main.js.map": "/social-network/static/js/runtime-main.46aff9ab.js.map",
+    "static/js/2.1395014a.chunk.js": "/social-network/static/js/2.1395014a.chunk.js",
+    "static/js/2.1395014a.chunk.js.map": "/social-network/static/js/2.1395014a.chunk.js.map",
+    "static/js/3.92a1998e.chunk.js": "/social-network/static/js/3.92a1998e.chunk.js",
+    "static/js/3.92a1998e.chunk.js.map": "/social-network/static/js/3.92a1998e.chunk.js.map",
     "index.html": "/social-network/index.html",
-    "static/css/main.db7e00d5.chunk.css.map": "/social-network/static/css/main.db7e00d5.chunk.css.map",
-    "static/js/2.99f01612.chunk.js.LICENSE.txt": "/social-network/static/js/2.99f01612.chunk.js.LICENSE.txt",
+    "static/css/main.70b07d94.chunk.css.map": "/social-network/static/css/main.70b07d94.chunk.css.map",
+    "static/js/2.1395014a.chunk.js.LICENSE.txt": "/social-network/static/js/2.1395014a.chunk.js.LICENSE.txt",
+    "static/media/spinner.9d54c1ab.svg": "/social-network/static/media/spinner.9d54c1ab.svg",
     "static/media/user.3911aaec.jpg": "/social-network/static/media/user.3911aaec.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.395a5fc0.js",
-    "static/js/2.99f01612.chunk.js",
-    "static/css/main.db7e00d5.chunk.css",
-    "static/js/main.d964f32a.chunk.js"
+    "static/js/runtime-main.46aff9ab.js",
+    "static/js/2.1395014a.chunk.js",
+    "static/css/main.70b07d94.chunk.css",
+    "static/js/main.6f10db71.chunk.js"
   ]
 }
