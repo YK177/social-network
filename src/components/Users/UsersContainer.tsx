@@ -4,6 +4,8 @@ import {follow, getUsers, setCurrentPage, unfollow, UserType} from '../../redux/
 import React from 'react'
 import {Users} from './Users'
 import {Preloader} from '../common/Preloader/Preloader'
+import s from './Users.module.css'
+import {Pagination} from './Pagination/Pagination'
 
 type MapStatePropsType = {
     users: UserType[]
@@ -43,21 +45,21 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
 
     render() {
         return (
-            <>
+            <div className={s.usersPage}>
+                <Pagination totalUsersCount={this.props.totalUsersCount}
+                            pageSize={this.props.pageSize}
+                            currentPage={this.props.currentPage}
+                            onPageChanged={this.onPageChanged}/>
                 {
                     this.props.isFetching
                         ? <Preloader/>
-                        : <Users totalUsersCount={this.props.totalUsersCount}
-                                 pageSize={this.props.pageSize}
-                                 currentPage={this.props.currentPage}
-                                 onPageChanged={this.onPageChanged}
-                                 users={this.props.users}
-                                 followUser={this.onFollowUser}
-                                 unfollowUser={this.onUnfollowUser}
+                        : <Users
+                            users={this.props.users}
+                            followUser={this.onFollowUser}
+                            unfollowUser={this.onUnfollowUser}
                         />
                 }
-
-            </>
+            </div>
 
         )
     }

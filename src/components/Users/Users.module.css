@@ -1,25 +1,16 @@
 .usersPage {
     display: grid;
+    grid-template-rows: 60px 1fr;
+    height: 100%;
     gap: 10px;
     background-color: #f1f1f1;
-}
-
-.pagination {
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
 }
 
 .users {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px, auto));
-    grid-auto-flow: row;
+    /*grid-auto-flow: row;*/
     gap: 10px;
     background-color: #f1f1f1;
     padding-bottom: 10px;
-}
-
-.selected {
-    background-color: #333333;
 }
