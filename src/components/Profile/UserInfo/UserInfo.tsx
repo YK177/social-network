@@ -11,15 +11,10 @@ export const UserInfo: React.FC<UserInfoPropsType> = ({profile}) => {
 
     return (
         <>
-            <div className={s.background}>
-                <img
-                    src="https://images.unsplash.com/photo-1613379293095-d81837c1502d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                    alt="profile background"/>
-            </div>
             <div className={s.container}>
                 <div className={s.avatar}>
                     <img
-                        src={profile.photos.small || avatar}
+                        src={profile.photos.large || avatar}
                         alt={profile.fullName}/>
                 </div>
                 <div className={s.body}>

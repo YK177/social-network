@@ -53,14 +53,11 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
                 {
                     this.props.isFetching
                         ? <Preloader/>
-                        : <Users
-                            users={this.props.users}
-                            followUser={this.onFollowUser}
-                            unfollowUser={this.onUnfollowUser}
-                        />
+                        : <Users users={this.props.users}
+                                 followUser={this.onFollowUser}
+                                 unfollowUser={this.onUnfollowUser}/>
                 }
             </div>
-
         )
     }
 }

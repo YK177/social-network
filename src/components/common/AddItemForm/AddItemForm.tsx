@@ -9,9 +9,9 @@ type AddItemFormPropsType = {
 
 export const AddItemForm: React.FC<AddItemFormPropsType> = ({value, addItem, updateText, children}) => {
 
-    const onClickHandler = () => addItem()
+    const onButtonClick = () => addItem()
 
-    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const onInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         updateText(e.currentTarget.value)
     }
 
@@ -20,10 +20,10 @@ export const AddItemForm: React.FC<AddItemFormPropsType> = ({value, addItem, upd
             <textarea
                 className={s.textarea}
                 placeholder={'Say something...'}
-                onChange={onChangeHandler}
+                onChange={onInputChange}
                 value={value}/>
             <div className={s.btn_wrapper}>
-                <button onClick={onClickHandler} className={'btn'}>{children}</button>
+                <button onClick={onButtonClick} className={'btn'}>{children}</button>
             </div>
         </div>
     )

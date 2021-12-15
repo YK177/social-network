@@ -11,7 +11,12 @@ type DialogsPropsType = {
     updateNewMessageText: (text: string) => void
 }
 
-export const Dialogs: React.FC<DialogsPropsType> = ({data, addMassage, updateNewMessageText}) => {
+export const Dialogs: React.FC<DialogsPropsType> = ({
+                                                        data,
+                                                        addMassage,
+                                                        updateNewMessageText
+                                                    }) => {
+
     return (
         <div className={s.container}>
             <div className={s.dialogsItems}>
@@ -25,11 +30,9 @@ export const Dialogs: React.FC<DialogsPropsType> = ({data, addMassage, updateNew
                         <Message key={m.id} data={m}/>)
                     )}
                 </div>
-                <AddItemForm
-                    value={data.newMessageText}
-                    addItem={addMassage}
-                    updateText={updateNewMessageText}
-                >Send</AddItemForm>
+                <AddItemForm value={data.newMessageText}
+                             addItem={addMassage}
+                             updateText={updateNewMessageText}>Send</AddItemForm>
             </div>
         </div>
     )

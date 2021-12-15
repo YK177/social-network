@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux'
-import {authAPI} from '../api/api'
+import {authAPI} from '../api/auth-api'
 
 export type AuthResponseType = {
     id: number | null

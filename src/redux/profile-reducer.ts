@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux'
-import {profileAPI} from '../api/api'
+import {profileAPI} from '../api/profile-api'
 
 export type ProfileType = {
     aboutMe: string | null
