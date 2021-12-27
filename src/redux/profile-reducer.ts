@@ -1,60 +1,27 @@
 import {Dispatch} from 'redux'
 import {profileAPI} from '../api/profile-api'
 
-export type ProfileType = {
-    aboutMe: string | null
-    contacts: {
-        facebook: string | null
-        website: string | null
-        vk: string | null
-        twitter: string | null
-        instagram: string | null
-        youtube: string | null
-        github: string | null
-        mainLink: string | null
-    },
-    lookingForAJob: boolean
-    lookingForAJobDescription: string | null
-    fullName: string
-    userId: number
-    photos: {
-        small: string | null
-        large: string | null
-    }
-}
-
-export type PostType = {
-    id: number
-    avatar: string
-    name: string
-    lastSeen: number
-    comment: string
-    likeCounter: number
-    shareCounter: number
-}
-export type ProfilePageType = typeof initialState
-
 const initialState = {
     profile: {
-        'aboutMe': 'я круто чувак 1001%',
-        'contacts': {
-            'facebook': 'facebook.com',
-            'website': null,
-            'vk': 'vk.com/dimych',
-            'twitter': 'https://twitter.com/@sdf',
-            'instagram': 'instagra.com/sds',
-            'youtube': null,
-            'github': 'github.com',
-            'mainLink': null
+        aboutMe: null,
+        contacts: {
+            facebook: null,
+            website: null,
+            vk: null,
+            twitter: null,
+            instagram: null,
+            youtube: null,
+            github: null,
+            mainLink: null,
         },
-        'lookingForAJob': true,
-        'lookingForAJobDescription': 'не ищу, а дурачусь',
-        'fullName': 'samurai dimych',
-        'userId': 2,
-        'photos': {
-            'small': 'https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0',
-            'large': 'https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0'
-        }
+        lookingForAJob: false,
+        lookingForAJobDescription: null,
+        fullName: '',
+        userId: null,
+        photos: {
+            small: null,
+            large: null,
+        },
     } as ProfileType,
     newPostText: '',
     posts: [
@@ -76,7 +43,8 @@ const initialState = {
             likeCounter: 15,
             shareCounter: 2
         }
-    ] as PostType[]
+    ] as PostType[],
+    status: '',
 }
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionType) => {
@@ -105,42 +73,81 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
                 ...state,
                 profile: action.profile
             }
+        case 'SET-STATUS':
+            return {
+                ...state,
+                status: action.status
+            }
         default:
             return state
     }
 }
 
-export type ActionType =
-    ReturnType<typeof addPost>
-    | ReturnType<typeof updateNewPostText>
-    | ReturnType<typeof setUserProfile>
+// ACTIONS
+export const addPost = () => ({type: 'ADD-POST'} as const)
+export const updateNewPostText = (newText: string) => ({type: 'UPDATE-NEW-POST-TEXT', newText,} as const)
+export const setUserProfile = (profile: ProfileType) => ({type: 'SET-USER-PROFILE', profile,} as const)
+export const setStatus = (status: string) => ({type: 'SET-STATUS', status,} as const)
 
-export const addPost = () => {
-    return {
-        type: 'ADD-POST'
-    } as const
-}
-
-export const updateNewPostText = (newText: string) => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT',
-        newText
-    } as const
-}
-
-export const setUserProfile = (profile: ProfileType) => {
-    return {
-        type: 'SET-USER-PROFILE',
-        profile,
-    } as const
-}
-
-export const getUserProfile = (userId: string) => (dispatch: Dispatch) => {
+// THUNKS
+export const getUserProfile = (userId: number) => (dispatch: Dispatch) => {
     profileAPI
         .getUserProfile(userId)
         .then(data => {
             dispatch(setUserProfile(data))
         })
 }
+export const getUserStatus = (userId: number) => (dispatch: Dispatch) => {
+    profileAPI
+        .getStatus(userId)
+        .then(data => {
+            dispatch(setStatus(data))
+        })
+}
+export const updateUserStatus = (status: string) => (dispatch: Dispatch) => {
+    profileAPI
+        .updateStatus(status)
+        .then(() => {
+            dispatch(setStatus(status))
+        })
+}
+
+// TYPES
+export type ProfileType = {
+    aboutMe: string | null
+    contacts: {
+        facebook: string | null
+        website: string | null
+        vk: string | null
+        twitter: string | null
+        instagram: string | null
+        youtube: string | null
+        github: string | null
+        mainLink: string | null
+    },
+    lookingForAJob: boolean
+    lookingForAJobDescription: string | null
+    fullName: string
+    userId: number | null
+    photos: {
+        small: string | null
+        large: string | null
+    }
+}
+export type PostType = {
+    id: number
+    avatar: string
+    name: string
+    lastSeen: number
+    comment: string
+    likeCounter: number
+    shareCounter: number
+}
+export type ProfilePageType = typeof initialState
+export type ActionType =
+    | ReturnType<typeof addPost>
+    | ReturnType<typeof updateNewPostText>
+    | ReturnType<typeof setUserProfile>
+    | ReturnType<typeof setStatus>
 
 export default profileReducer
